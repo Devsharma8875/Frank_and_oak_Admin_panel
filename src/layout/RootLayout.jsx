@@ -1,25 +1,25 @@
-import React from 'react'
-import Home from '../Home'
-import Sidebar from '../common/Sidebar'
-import Header from '../common/Header'
-import Breadcrumb from '../common/Breadcrumb'
-import Footer from '../common/Footer'
+import React from "react";
+import Home from "../Home";
+import Sidebar from "../common/Sidebar";
+import Header from "../common/Header";
+import Breadcrumb from "../common/Breadcrumb";
+import Footer from "../common/Footer";
 // import { DashboardItems } from '../Pages/Dashboard'
-import { Outlet } from 'react-router-dom'
+import { Outlet } from "react-router-dom";
 
 export default function RootLayout() {
   return (
     <section className="w-full font-urbanist">
-      <div className="grid grid-cols-[16.5%_auto]">
+      <div className="grid grid-cols-[22.5%_auto]">
         <div>
           <Sidebar />
         </div>
         <div>
           <Header />
-          <Outlet/>
-          <Footer/>
+          <Outlet />
+          <Footer />
         </div>
       </div>
     </section>
-  )
+  );
 }
