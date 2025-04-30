@@ -125,7 +125,7 @@ export default function HeadlineDetails() {
                 for="base-input"
                 className="block mb-5 text-md font-medium text-gray-900"
               >
-                Size Name
+                Headline Name
               </label>
               <input
                 type="text"
