@@ -67,10 +67,6 @@ export default function Header({ toggleSidebar }) {
                 className="w-12 h-12 rounded-full object-cover"
                 src={path + profileImage}
                 alt="Profile"
-                onError={(e) => {
-                  e.target.onerror = null;
-                  e.target.src = "https://via.placeholder.com/150";
-                }}
               />
               <HeadDropDown />
             </figure>

@@ -24,7 +24,9 @@ export default function Orders() {
     let obj = { ...searchData };
     obj["pageNumber"] = currentPage;
     axios
-      .get("http://localhost:8000/admin/order/orders", { params: obj })
+      .get("https://backend-frank-and-oak.onrender.com/admin/order/orders", {
+        params: obj,
+      })
       .then((res) => {
         if (res.data.status == 1) {
           setOrders(res.data.data);
@@ -38,7 +40,7 @@ export default function Orders() {
   const fetchOrders = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8000/admin/order/orders"
+        "https://backend-frank-and-oak.onrender.com/admin/order/orders"
       );
 
       if (response.data.status === 1) {
@@ -53,7 +55,7 @@ export default function Orders() {
   const updateOrderStatus = async (orderId, newStatus) => {
     try {
       const response = await axios.patch(
-        `http://localhost:8000/admin/order/orders/${orderId}`,
+        `https://backend-frank-and-oak.onrender.com/admin/order/orders/${orderId}`,
         { status: newStatus }
       );
 
@@ -202,7 +204,7 @@ export default function Orders() {
 
       if (result.isConfirmed) {
         const response = await axios.post(
-          "http://localhost:8000/website/send-Invoice",
+          "https://backend-frank-and-oak.onrender.com/website/send-Invoice",
           {
             _id: orderId,
             Email: customerEmail,
@@ -248,10 +250,13 @@ export default function Orders() {
           selectedIds.includes(order._id)
         );
         const sendPromises = selectedOrders.map((order) =>
-          axios.post("http://localhost:8000/website/send-Invoice", {
-            _id: order._id,
-            Email: order.user.userEmail,
-          })
+          axios.post(
+            "https://backend-frank-and-oak.onrender.com/website/send-Invoice",
+            {
+              _id: order._id,
+              Email: order.user.userEmail,
+            }
+          )
         );
 
         await Promise.all(sendPromises);
